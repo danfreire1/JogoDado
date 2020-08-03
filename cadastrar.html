@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width-device-width, initial-scale-1.0">
+	<meta http-equiv="X-UA-Compartible" content="ie-edge">
+	<title>Jogo do dado</title>
+	<link rel="stylesheet" href="estilo.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	
+	<!----- Scripts JS da página -------->
+	<script src="functions.js"></script>
+</head>
+<body class="backgroundStyle" id="bodyPage">
+	<form name="formJogoDado" id="formJogoDado">	
+		<input type="hidden" id="hdnValorPlacar1" name="hdnValorPlacar1">
+		<div id="divInicial">
+			<header>
+				<h1>Jogo do dado</h1>
+				<h4>Ficha de Cadastro</h4>
+			</header>
+			<section class="sec">
+				<div class="sec">
+					<label id="player1"><b>Jogador 1</b></label>                      
+					<label id="player2"><b>Jogador 2</b></label>
+					<br>
+					<br>
+<!---============================================================================================
+============================================ DADOS DO JOGADOR 1 ====================================== --->
+					<div style="margin-top:-3%">
+						<div class="row">
+							<div class="col-md-12">
+								<label id="nome1"> <b>Nome:<b></label>
+								<input id="nome01"style="margin-left:2%;border-radius:3px"type="text"> 
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">                       
+								<label id="nick1"><b>Nick:<b></label>
+								<input id="nick01"style="margin-left:3.8%;border-radius:3px"type="text" > 
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<label id="idade1"><b>Idade:</b></label>
+								<input id="idade01" style="margin-left:2.5%;border-radius:3px"type="text" maxlength="2" onkeypress="return somenteNumeros(event)">  
+							</div>
+						</div>
+					</div>
+					
+					<div style="margin-top:-18.5%;margin-left: 50%">
+						<div class="row">
+							<div class="col-md-12">
+								<label id="nome2">Nome:</label>
+								<input  id="nome02"style="margin-left:2%;border-radius:3px"type="text">  
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<label id="nick2">Nick:</label>
+								<input id="nick02" style="margin-left:6.2%;border-radius:3px"type="text" >   
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<label id="idade2">Idade:</label>
+								<input id="idade02"class="protocolo"style="margin-left:3.4%;border-radius:3px"type="text" maxlength="2" onkeypress="return somenteNumeros(event)">  
+							</div>
+						</div>
+					</div>
+					<br>
+<!---============================================================================================
+============================================ DADOS JOGADOR 2 ====================================== --->              
+					<div class="row" >
+						<div class="col-md-6" style="margin-left: 25%">
+							<button onclick="ok1()" id="bla"style="margin-left:40%;border-color:white;"type="button" class="btn btn-secondary">Ok</button>
+						</div>
+					</div>
+					<br>
+					<button type="button" onclick="iniciarJogo()" class="inicio" id="iniciar" style="margin-left: 42%;">Iniciar Jogo</button>
+				</div>	
+			</section>
+			<br>
+			<footer>
+				<p style="color:white">&copy; Jogodado</p>
+			</footer>
+		</div>
+		
+<!---============================================================================================
+============================================ CARREGANDO ====================================== --->
+		<div class="container" id="alerta" style="display:none; margin-left:35%; padding-top: 10%">
+			<img id="carregando" src="Imagens/loading.gif" />
+		</div>
+<!---============================================================================================
+============================================ SEGUNDA TELA ====================================== --->	  
+		<div id="divJogo" class="container-imagem2" style="display:none">
+			<div class="row" style="margin-top:2%;margin-left:15%">
+				<div class="col-md-6">
+					<input type="text" id="placar1" value="10">                          
+					<input type="text" id="txtNomeJogador1">                          
+				</div>
+				<div class="col-md-6">
+					<input type="text" id="placar2" value="10">
+					<input type="text" id="txtNomeJogador2">
+				</div>
+			</div>
+			<br>
+			<br>
+			<div class="row pontuacao" id="pontuacao">
+				<div class="col-sm-12" id="colpontuacao" style="margin-left: 45%;">
+					<label class="labelPontuacao">Começar</label>
+				</div>
+			</div>
+			<div class="row" style="margin-left:15%">
+				<div class="col-md-6">          	
+					<img id="dado" src="Imagens/face1.png" style="cursor:pointer;border-radius: 29px; margin-left: 8%;">
+				</div>
+				<div class="col-md-6">
+					<img id="dado3" src="Imagens/face1.png" style="cursor:pointer;border-radius: 29px; margin-left: 8%;">
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-2" style="margin-left: 25%">
+					<button type="button" onclick="sorteio()" style="cursor:pointer;" id="girar">Girar Dado</button>
+				</div>
+				<div class="col-md-2" style="margin-left: 25%">
+					<button type="button" onclick="decisao()" style="cursor:pointer;" id="girar2" disabled>Girar Dado</button>
+				</div>
+			</div>
+			<br>
+			<footer>
+				<p style="color:white">&copy; Jogodado</p>
+			</footer>
+		</div>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<div class="row" id="ganhadores" style="padding-top: 15%; display:none; margin-left:5%; border: 2px solid red; border-radius: 25px;">
+			<div class="col-md-12">
+				<label id="jogador1" style="display:none"></label>
+				<label id="jogador2" style="display:none"></label>
+			</div>
+		</div>
+		
+		<div class="row" id="Btnreiniciar" style="display:none">
+			<div class="col-sm-4" style="margin-left:30%">
+				<button type="button" onclick="reinicia()" style="cursor:pointer;margin-left:39%;" id="reiniciar">Reiniciar</button>
+				<button type="button" onclick="document.formJogoDado.submit()" style="cursor:pointer" id="voltar">Voltar</button>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

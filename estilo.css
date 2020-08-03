@@ -1,0 +1,141 @@
+@keyframes bounce{
+
+    0%, 20%, 60%, 100%{
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    40%{ -webkit-transform: translateY(-20px);
+        transform: translateY(-20px);
+
+    }
+
+     80%{ -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+
+    }
+}
+body {
+    background: rgb(20, 20, 221);
+    font: normal 15pt Arial;
+}
+
+header {
+    color: white;
+    text-align: center;
+   
+
+}
+
+footer {
+    color: white;
+    text-align: center;
+    font-size: italic;
+}
+
+section {
+    
+    border-radius: 10px;
+    padding: 18px;
+    width: 600px;
+    margin-left:28%;
+    box-shadow: 5px 5px 5px 10px  rgba(0, 0, 0, 0.918);
+    margin-top:5.7%;
+    color:white;
+    border-color:white;
+
+}
+
+#cadastro {
+    background: white;
+    border-radius: 5px black;
+}
+#player1{
+    margin-left: 15%;
+    font-size: 150%;
+}
+#player2{
+    margin-left: 30%;
+    font-size: 150%;
+}
+
+#cad1{
+    margin-left: 2%;
+}
+		#bode{
+            //background-image:url(Imagens/background.jpg);
+			background-image: linear-gradient(to bottom, grey, black);
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .content{
+            background: white;
+            width: 50%;
+            padding: 40px;
+            margin: 100px auto;
+            font-family: calibri;
+            border-radius: 10px;
+        }
+
+        p{
+            font-size: 25px;
+            color: black;
+        }
+
+/*.inicio:hover {
+animation: bounce 1s;
+}*/
+
+.inicio{
+cursor:pointer;
+margin-left:39%;
+display:none;}
+
+#bla hover {
+animation: bounce 1s;
+}
+
+#jogador1{
+    font-size:100px;
+    margin-left: 30%;
+	color: blue;
+}
+
+#jogador2{
+    font-size:100px;
+    margin-left: 30%;
+	color: blue;
+}
+
+.sec{
+	background-image: linear-gradient(45deg, red, orange);
+}
+
+.backgroundStyle {
+	background-image: linear-gradient(to bottom, grey, black);
+	background-size: cover;
+	background-attachment: fixed;
+	height: 100%;
+}
+
+.backgroundStyle2 {
+	background-image:url(Imagens/vs.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+	height: 100%;
+}
+
+.pontuacao {
+	margin-left: 45%;
+}
+
+.pontuacao1 {
+	margin-left: 46%;
+}
+
+.labelPontuacao {
+	color:white; 
+	font-size: 25px;
+	font-weight: bold;
+}
